@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>UterPorter</AssemblyName>
+    <RootNamespace>UterPorter</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+
+    <!-- Paths on this PC -->
+    <ValheimDir>K:\SteamLibrary\steamapps\common\Valheim</ValheimDir>
+    <ManagedDir>$(ValheimDir)\valheim_Data\Managed</ManagedDir>
+    <ProfilesDir>$(APPDATA)\Thunderstore Mod Manager\DataFolder\Valheim\profiles</ProfilesDir>
+    <BepInExDir>$(ProfilesDir)\AI Companion\BepInEx</BepInExDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Game + Unity -->
+    <Reference Include="$(ManagedDir)\assembly_*.dll" Private="false" />
+    <Reference Include="$(ManagedDir)\UnityEngine.dll" Private="false" />
+    <Reference Include="$(ManagedDir)\UnityEngine.*Module.dll" Private="false" />
+    <Reference Include="$(ManagedDir)\Splatform*.dll" Private="false" />
+    <!-- Mod loader (references only; nothing is copied) -->
+    <Reference Include="$(BepInExDir)\core\BepInEx.dll" Private="false" />
+    <Reference Include="$(BepInExDir)\core\0Harmony.dll" Private="false" />
+    <Reference Include="$(BepInExDir)\plugins\**\Jotunn.dll" Private="false" />
+  </ItemGroup>
+
+  <!-- After building, drop the mod into the test profile ("Uter": BepInEx + Jotunn only). -->
+  <ItemGroup>
+    <TestProfile Include="$(ProfilesDir)\Uter" />
+  </ItemGroup>
+  <Target Name="CopyToProfile" AfterTargets="Build" Condition="Exists('$(ProfilesDir)\Uter')">
+    <MakeDir Directories="@(TestProfile->'%(Identity)\BepInEx\plugins\UterPorter')" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="%(TestProfile.Identity)\BepInEx\plugins\UterPorter" />
+  </Target>
+
+</Project>

@@ -1,0 +1,10 @@
+{
+  "name": "Uter_the_Porter",
+  "version_number": "1.0.0",
+  "website_url": "",
+  "description": "Call Uter, a grumpy Dverger porter, and he'll piggyback you home or to your gravestone, running round water and cliffs and complaining all the way. Client-side.",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2360",
+    "ValheimModding-Jotunn-2.30.2"
+  ]
+}
