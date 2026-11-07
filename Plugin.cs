@@ -21,7 +21,7 @@ namespace UterPorter
     {
         public const string PluginGuid = "com.wpkenny.uterporter";
         public const string PluginName = "Uter the Porter";
-        public const string PluginVersion = "1.0.0";
+        public const string PluginVersion = "1.0.1";
         public const string PrefabName = "UterPorter";
 
         public static ManualLogSource Log;

@@ -1,7 +1,7 @@
 {
   "name": "Uter_the_Porter",
-  "version_number": "1.0.0",
-  "website_url": "",
+  "version_number": "1.0.1",
+  "website_url": "https://github.com/wpkenny/UterPorter",
   "description": "Call Uter, a grumpy Dverger porter, and he'll piggyback you home or to your gravestone, running round water and cliffs and complaining all the way. Client-side.",
   "dependencies": [
     "denikson-BepInExPack_Valheim-5.4.2360",

@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.1
+- Added a screenshot to the mod page and a link to the source code. No gameplay changes.
+
 ## 1.0.0
 - First release. Call Uter for a piggyback home or to your nearest gravestone.
 - Route planning over land (round water, lava and cliffs), jumping obstacles, Jump to climb off.
